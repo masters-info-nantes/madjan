@@ -1,0 +1,55 @@
+<plugin>
+	<name>Feu de forêt - v2</name>
+	<description>règles de propagation et images des pions pour un feu de fôret</description>
+	<version>v2</version>
+
+	<cellBackground>fond.png</cellBackground>
+
+	<pawns>
+		<pawn>
+			<id>arbre</id>
+			<name>Arbre</name>
+			<icon>img/arbre.png</icon>
+		</pawn>
+		<pawn>
+			<id>endDebutFeu</id>
+			<name>Arbre partiellement en feu</name>
+			<icon>img/enPetitFeu.png</icon>
+		</pawn>
+		<pawn>
+			<id>enFeu</id>
+			<name>Arbre en feu</name>
+			<icon>img/enFeu.png</icon>
+		</pawn>
+		<pawn>
+			<id>enCendre</id>
+			<name>Arbre en cendre</name>
+			<icon>img/enCendre.png</icon>
+		</pawn>
+	</pawns>
+	<rules>
+		
+        <rule pawn="enFeu" newPawn="enCendre"> 
+        </rule>
+
+        <rule pawn="endDebutFeu" newPawn="enFeu">
+		</rule>
+
+		<rule pawn="arbre" newPawn="endDebutFeu">
+			<pawnNumberIsGreater pawn="endDebutFeu">2</pawnNumberIsGreater>  
+		</rule>
+
+		<rule pawn="arbre" newPawn="enFeu">
+			<pawnNumberIsGreater pawn="endDebutFeu">4</pawnNumberIsGreater>  
+		</rule>
+
+		<rule pawn="arbre" newPawn="enFeu">
+			<pawnNumberIsGreater pawn="enFeu">1</pawnNumberIsGreater>
+		</rule>
+
+		<rule pawn="arbre" newPawn="enFeu">
+			<pawnNumberIsEqual pawn="enFeu">1</pawnNumberIsEqual>  
+		</rule>	
+ 
+	</rules>
+</plugin>

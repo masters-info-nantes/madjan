@@ -1,0 +1,30 @@
+<plugin>
+	<name>Jeux de la vie </name>
+	<description>règles de propagation et images des pions basic </description>
+	<version>v1</version>
+
+	<cellBackground>fond.png</cellBackground>
+
+	<pawns>
+		<pawn>
+			<id>vivant</id>
+			<name>vivant</name>
+			<icon>img/vivant.png</icon>
+		</pawn>
+	</pawns>
+
+	<rules>
+		<rule pawn="vivant" newPawn="empty">
+			<pawnNumberIsGreater pawn="vivant">3</pawnNumberIsEqual>
+		</rule>
+        <rule pawn="vivant" newPawn="empty">
+            <pawnNumerIsLower pawn="vivant">2</pawnNumerIsLower>        
+        </rule>
+        <rule pawn="empty" newPawn="vivant">
+            <pawnNumberIsEqual pawn="vivant">2</pawnNumberIsEqual>      
+        </rule>
+        <rule pawn="empty" newPawn="vivant">
+        	<pawnNumberIsGreater pawn="vivant">2</pawnNumberIsGsreater>  	
+        </rule>
+	</rules>
+</plugin>

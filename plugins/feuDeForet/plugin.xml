@@ -1,0 +1,39 @@
+<plugin>
+	<name>Feu de forêt</name>
+	<description>règles de propagation et images des pions pour un feu de fôret</description>
+	<version>v1</version>
+
+	<cellBackground>fond.png</cellBackground>
+
+	<pawns>
+		<pawn>
+			<id>arbre</id>
+			<name>arbre</name>
+			<icon>img/arbre.png</icon>
+		</pawn>
+		<pawn>
+			<id>enFeu</id>
+			<name>enFeu</name>
+			<icon>img/enFeu.png</icon>
+		</pawn>
+		<pawn>
+			<id>enCendre</id>
+			<name>enCendre</name>
+			<icon>img/enCendre.png</icon>
+		</pawn>
+	</pawns>
+	<rules>
+		
+        <rule pawn="enFeu" newPawn="enCendre"> 
+        </rule>
+
+		<rule pawn="arbre" newPawn="enFeu">
+			<pawnNumberIsEqual pawn="enFeu">1</pawnNumberIsEqual>  
+		</rule>
+
+        <rule pawn="arbre" newPawn="enFeu">
+      		<pawnNumberIsGreater pawn="enFeu">1</pawnNumberIsEqual>      
+       </rule>
+ 
+	</rules>
+</plugin>
